@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Read digit</title>
+        <link rel ="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    </head>
+    <script src="{{ url_for('static', filename='drawCanvas.js') }}"></script>
+    <body onload="init()">
+        <form action="{{ url_for('predict_img') }}" method="POST" id="img_form" enctype = 'multipart/form-data'>
+            <input type="hidden" id='dataURL' name="data_url" value='X'>
+            <canvas id="can" width="112" height="112"></canvas>
+            <input type="button" value="submit" id="btn" size="30" onclick="save()">
+            <input type="button" value="clear" id="clr" size="23" onclick="erase()">
+        </form>
+        <div>
+            <a href="{{ url_for('home') }}">Back to home</a>
+        </div>
+    </body>
+    </html>

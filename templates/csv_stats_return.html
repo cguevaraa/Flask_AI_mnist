@@ -1,0 +1,14 @@
+<!Doctype html>
+<html>
+    <head>
+      <title>Stats</title>
+      <link rel ="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    </head>
+    <body>
+        {{title}}
+        {% for table in tables %}
+        {{ table|safe }}
+        {% endfor %}
+        <a href="{{ url_for('home') }}">Back to home</a>
+    </body>
+</html>

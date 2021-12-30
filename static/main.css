@@ -1,0 +1,15 @@
+.superstyle {
+    font-style: oblique;
+    color: brown;
+}
+
+.alert {
+    color: rgb(255, 0, 0);
+}
+
+#can {
+    position:absolute;
+    top:10%;
+    left:10%;
+    background-color: black;
+}
