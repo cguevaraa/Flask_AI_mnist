@@ -1,3 +1,4 @@
 .env
 __pycache__
 user_img.jpg
+trained_digits.sav

@@ -17,5 +17,5 @@ def img_to_arr():
     return arr
 
 def load_model():
-    model = pickle.load(open('trained_digits.sav', 'rb'))
+    model = pickle.load(open('static/trained_digits.sav', 'rb'))
     return model

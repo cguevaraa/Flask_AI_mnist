@@ -33,4 +33,4 @@ print('********************************************')
 
 # Serialize the model and save to disk
 filename = 'finalized_model.sav'
-pickle.dump(rf, open('trained_digits.sav', 'wb'))
+pickle.dump(rf, open('static/trained_digits.sav', 'wb'))
