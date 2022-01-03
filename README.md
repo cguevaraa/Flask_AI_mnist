@@ -1,4 +1,4 @@
-# Flask_IA_mnist
+# Flask_AI_mnist
 
 This is a small exercise to create a webapp with Flask, setup a DB connection and give access to an AI digit classification service (model trained with the. Keras'
 MNIST digits dataset - https://keras.io/api/datasets/mnist/ -).
