@@ -21,18 +21,20 @@ def db_connect():
 def get_users(table='users'):
     db = db_connect()
     cursor = db.cursor()
+    cursor.execute("CREATE DATABASE IF NOT EXISTS p5flask")
     cursor.execute("USE p5flask")
+    cursor.execute("CREATE TABLE IF NOT EXISTS users (id int NOT NULL PRIMARY KEY AUTO_INCREMENT, firstname VARCHAR(255) NOT NULL, lastname VARCHAR(255) NOT NULL, nickname VARCHAR(255) NOT NULL, gender VARCHAR(255) NOT NULL)")
     cursor.execute(f"SELECT * FROM {table}")
     users = cursor.fetchall()
     cursor.close()
     db.close()
     return users
 
-
-
 # Check if nickname already exists in DB
 def exists(nickname, cursor, table='users'):
+    cursor.execute("CREATE DATABASE IF NOT EXISTS p5flask")
     cursor.execute("USE p5flask")
+    cursor.execute("CREATE TABLE IF NOT EXISTS users (id int NOT NULL PRIMARY KEY AUTO_INCREMENT, firstname VARCHAR(255) NOT NULL, lastname VARCHAR(255) NOT NULL, nickname VARCHAR(255) NOT NULL, gender VARCHAR(255) NOT NULL)")
     cursor.execute(f"SELECT nickname FROM {table}")
     nicknames = cursor.fetchall() # Store all nicknames in DB
     for entry in nicknames:
@@ -51,7 +53,9 @@ def db_create_user(firstname, lastname, nickname, gender, table='users'):
         db.close()
         return 'The provided nickname already exists'
     else:
+        cursor.execute("CREATE DATABASE IF NOT EXISTS p5flask")
         cursor.execute("USE p5flask")
+        cursor.execute("CREATE TABLE IF NOT EXISTS users (id int NOT NULL PRIMARY KEY AUTO_INCREMENT, firstname VARCHAR(255) NOT NULL, lastname VARCHAR(255) NOT NULL, nickname VARCHAR(255) NOT NULL, gender VARCHAR(255) NOT NULL)")
         cursor.execute(f"INSERT INTO {table} (firstname, lastname, nickname, gender) VALUES ('{firstname}', '{lastname}', '{nickname}', '{gender}')")
         db.commit()
         cursor.close()
